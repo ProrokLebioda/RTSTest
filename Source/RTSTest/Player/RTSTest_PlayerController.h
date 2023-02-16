@@ -13,5 +13,5 @@ UCLASS()
 class RTSTEST_API ARTSTest_PlayerController : public APlayerController
 {
 	GENERATED_BODY()
-	
+
 };

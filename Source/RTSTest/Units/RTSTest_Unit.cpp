@@ -15,7 +15,6 @@ ARTSTest_Unit::ARTSTest_Unit()
 void ARTSTest_Unit::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -25,10 +24,9 @@ void ARTSTest_Unit::Tick(float DeltaTime)
 
 }
 
-// Called to bind functionality to input
-void ARTSTest_Unit::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+void ARTSTest_Unit::UnitClicked()
+{
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("This is an on screen message!"));
 }
 

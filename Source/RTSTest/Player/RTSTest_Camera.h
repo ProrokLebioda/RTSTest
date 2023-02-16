@@ -19,6 +19,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+	UPROPERTY(BlueprintReadOnly, Category = "Components")
+	class USpringArmComponent* SpringArm;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Components")
+	class UCameraComponent* Camera;
+public:	
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	void OnLeftMouseClick();
 };
