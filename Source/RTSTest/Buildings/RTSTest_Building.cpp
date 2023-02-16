@@ -7,32 +7,26 @@
 // Sets default values
 ARTSTest_Building::ARTSTest_Building()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
+	AssignedUnit = nullptr;
 
 	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 }
 
-// Called when the game starts or when spawned
 void ARTSTest_Building::BeginPlay()
 {
 	Super::BeginPlay();
+
 	
-}
-
-// Called every frame
-void ARTSTest_Building::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
 void ARTSTest_Building::Select_Implementation()
 {
 	ARTSTestGameModeBase* GameMode = Cast<ARTSTestGameModeBase>(GetWorld()->GetAuthGameMode());
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Building Clicked!"));
 	if (GameMode)
 	{
-		GameMode->AssignActor(*this);
+		GameMode->AssignActor(this);
 	}
 }
 

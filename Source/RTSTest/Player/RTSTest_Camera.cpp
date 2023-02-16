@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h" 
 #include <RTSTest/Interfaces/ISelectable.h>
 #include <Kismet/KismetSystemLibrary.h>
+#include <RTSTest/RTSTestGameModeBase.h>
 
 // Sets default values
 ARTSTest_Camera::ARTSTest_Camera()
@@ -68,7 +69,6 @@ void ARTSTest_Camera::OnLeftMouseClick()
 			UE_LOG(LogTemp, Warning, TEXT("Hit actor: %s"), *HitActor->GetName());
 			UKismetSystemLibrary::DrawDebugSphere(GetWorld(), HitResult.Location, 5, 5, FLinearColor::Red, 5.f, 1.f);
 			ISelectable::Execute_Select(HitActor);
-			SelectedActor = HitActor;
 		}
 	}
 
@@ -76,5 +76,10 @@ void ARTSTest_Camera::OnLeftMouseClick()
 
 void ARTSTest_Camera::OnRightMouseClick()
 {
-	SelectedActor = nullptr;
+	ARTSTestGameModeBase* GameMode = Cast<ARTSTestGameModeBase>(GetWorld()->GetAuthGameMode());
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Clicked!"));
+	if (GameMode)
+	{
+		GameMode->AssignActor(nullptr);
+	}
 }

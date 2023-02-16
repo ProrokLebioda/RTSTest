@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "Widgets/RTSTest_UserWidget.h"
+
 #include "RTSTestGameModeBase.generated.h"
 
 /**
@@ -20,10 +20,13 @@ protected:
 	TSubclassOf<class UUserWidget> BuildingWidgetClass;
 
 	UPROPERTY()
-	URTSTest_UserWidget* BuildingWidget;
+	class URTSTest_UserWidget* BuildingWidget;
 
-	void UpdateAssignedActor(AActor& AssignedActor);
+	void UpdateAssignedActor(AActor* AssignedActor);
+
+	virtual void BeginPlay() override;
+
 
 public:
-	void AssignActor(AActor& AssignedActor);
+	void AssignActor(AActor* AssignedActor);
 };

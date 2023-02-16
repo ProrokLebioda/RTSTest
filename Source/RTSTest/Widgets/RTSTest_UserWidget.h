@@ -14,6 +14,10 @@ class RTSTEST_API URTSTest_UserWidget : public UUserWidget
 {
 	GENERATED_BODY()
 public:
-	UFUNCTION(BlueprintImplementableEvent)
-	void AssignUnit(AActor* AssignedActor);
+	UFUNCTION(BlueprintCallable)
+	void ChangeAssignedActor(AActor* AssignedActor);
+
+protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	AActor* AssignedUnit;
 };

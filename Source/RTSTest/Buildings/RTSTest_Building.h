@@ -24,10 +24,8 @@ private:
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* MeshComponent;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 	class ARTSTest_Unit* AssignedUnit;
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 	void Select_Implementation();
 };

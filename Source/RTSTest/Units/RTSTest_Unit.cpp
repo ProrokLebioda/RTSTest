@@ -27,7 +27,7 @@ void ARTSTest_Unit::Tick(float DeltaTime)
 
 void ARTSTest_Unit::UnitClicked()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("This is an on screen message!"));
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("UnitClicked!"));
 }
 
 void ARTSTest_Unit::Select_Implementation()
