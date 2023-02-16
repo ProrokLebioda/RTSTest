@@ -2,6 +2,7 @@
 
 
 #include "RTSTest_Building.h"
+#include <RTSTest/RTSTestGameModeBase.h>
 
 // Sets default values
 ARTSTest_Building::ARTSTest_Building()
@@ -28,6 +29,10 @@ void ARTSTest_Building::Tick(float DeltaTime)
 
 void ARTSTest_Building::Select_Implementation()
 {
-
+	ARTSTestGameModeBase* GameMode = Cast<ARTSTestGameModeBase>(GetWorld()->GetAuthGameMode());
+	if (GameMode)
+	{
+		GameMode->AssignActor(*this);
+	}
 }
 

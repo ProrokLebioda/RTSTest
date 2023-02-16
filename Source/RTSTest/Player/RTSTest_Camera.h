@@ -24,7 +24,11 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Components")
 	class UCameraComponent* Camera;
+	UPROPERTY(BlueprintReadOnly, Category = "Selection")
+	AActor* SelectedActor;
+
 public:	
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void OnLeftMouseClick();
+	void OnRightMouseClick();
 };

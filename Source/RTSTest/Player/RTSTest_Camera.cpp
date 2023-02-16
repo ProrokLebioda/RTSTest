@@ -10,6 +10,8 @@
 // Sets default values
 ARTSTest_Camera::ARTSTest_Camera()
 {
+	SelectedActor = nullptr;
+
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
@@ -32,28 +34,12 @@ void ARTSTest_Camera::BeginPlay()
 
 void ARTSTest_Camera::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
-	// Bind fire event
 	PlayerInputComponent->BindAction("LeftMouseButton", IE_Pressed, this, &ARTSTest_Camera::OnLeftMouseClick);
+	PlayerInputComponent->BindAction("RightMouseButton", IE_Pressed, this, &ARTSTest_Camera::OnRightMouseClick);
 }
 
 void ARTSTest_Camera::OnLeftMouseClick()
 {
-	/*FVector StartLocation;
-	FVector EndLocation;
-	GetWorld()->GetFirstPlayerController()->DeprojectMousePositionToWorld(StartLocation, EndLocation);
-
-	FHitResult HitResult;
-	FCollisionQueryParams Params;
-	Params.AddIgnoredActor(this);
-	GetWorld()->LineTraceSingleByChannel(HitResult, StartLocation, EndLocation, ECC_Visibility, Params);
-
-	AActor* HitActor = HitResult.GetActor();
-	if (HitActor)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Hit actor: %s"), *HitActor->GetName());
-		UKismetSystemLibrary::DrawDebugSphere(GetWorld(), HitResult.Location, 5, 5, FLinearColor::Red, 5.f, 1.f);
-	}*/
-
 	FVector StartLocation;
 	FVector WorldDirection;
 	FVector EndLocation;
@@ -82,7 +68,13 @@ void ARTSTest_Camera::OnLeftMouseClick()
 			UE_LOG(LogTemp, Warning, TEXT("Hit actor: %s"), *HitActor->GetName());
 			UKismetSystemLibrary::DrawDebugSphere(GetWorld(), HitResult.Location, 5, 5, FLinearColor::Red, 5.f, 1.f);
 			ISelectable::Execute_Select(HitActor);
+			SelectedActor = HitActor;
 		}
 	}
 
+}
+
+void ARTSTest_Camera::OnRightMouseClick()
+{
+	SelectedActor = nullptr;
 }
