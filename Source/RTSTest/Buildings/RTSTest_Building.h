@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include <RTSTest/Interfaces/ISelectable.h>
 #include "RTSTest_Building.generated.h"
 
 UCLASS()
-class RTSTEST_API ARTSTest_Building : public AActor
+class RTSTEST_API ARTSTest_Building : public AActor, public ISelectable
 {
 	GENERATED_BODY()
 	
@@ -28,5 +29,5 @@ private:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	void Select_Implementation();
 };

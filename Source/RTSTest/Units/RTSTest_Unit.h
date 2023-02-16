@@ -4,10 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include <RTSTest/Interfaces/ISelectable.h>
 #include "RTSTest_Unit.generated.h"
 
+
 UCLASS()
-class RTSTEST_API ARTSTest_Unit : public APawn
+class RTSTEST_API ARTSTest_Unit : public APawn, public ISelectable
 {
 	GENERATED_BODY()
 
@@ -30,4 +32,6 @@ public:
 
 	UFUNCTION()
 	void UnitClicked();
+
+	void Select_Implementation();
 };

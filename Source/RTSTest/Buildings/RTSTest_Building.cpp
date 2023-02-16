@@ -26,3 +26,8 @@ void ARTSTest_Building::Tick(float DeltaTime)
 
 }
 
+void ARTSTest_Building::Select_Implementation()
+{
+
+}
+

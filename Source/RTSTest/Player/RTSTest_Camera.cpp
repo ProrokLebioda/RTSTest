@@ -81,7 +81,7 @@ void ARTSTest_Camera::OnLeftMouseClick()
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Hit actor: %s"), *HitActor->GetName());
 			UKismetSystemLibrary::DrawDebugSphere(GetWorld(), HitResult.Location, 5, 5, FLinearColor::Red, 5.f, 1.f);
-
+			ISelectable::Execute_Select(HitActor);
 		}
 	}
 
