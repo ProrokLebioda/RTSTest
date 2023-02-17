@@ -34,6 +34,7 @@ void ARTSTest_Unit::AssignBuilding(AActor* Building)
 	if (AssignedBuilding != building)
 	{
 		AssignedBuilding = building;
+		Assign();
 	}
 }
 
