@@ -3,6 +3,7 @@
 
 #include "RTSTest_Unit.h"
 #include <RTSTest/RTSTestGameModeBase.h>
+#include "RTSTest/Buildings/RTSTest_Building.h"
 
 // Sets default values
 ARTSTest_Unit::ARTSTest_Unit()
@@ -10,6 +11,7 @@ ARTSTest_Unit::ARTSTest_Unit()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	AssignedBuilding = nullptr;
 }
 
 // Called when the game starts or when spawned
@@ -25,6 +27,15 @@ void ARTSTest_Unit::Tick(float DeltaTime)
 
 }
 
+
+void ARTSTest_Unit::AssignBuilding(AActor* Building)
+{
+	ARTSTest_Building* building = Cast<ARTSTest_Building>(Building);
+	if (AssignedBuilding != building)
+	{
+		AssignedBuilding = building;
+	}
+}
 
 void ARTSTest_Unit::UnitClicked()
 {

@@ -29,7 +29,13 @@ private:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	
+
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	class ARTSTest_Building* AssignedBuilding;
+
+	UFUNCTION(BlueprintCallable)
+	void AssignBuilding(AActor* Building);
 
 	UFUNCTION()
 	void UnitClicked();
