@@ -70,11 +70,20 @@ void ARTSTest_Camera::OnLeftMouseClick()
 			UKismetSystemLibrary::DrawDebugSphere(GetWorld(), HitResult.Location, 5, 5, FLinearColor::Red, 5.f, 1.f);
 			ISelectable::Execute_Select(HitActor);
 		}
+		else
+		{
+			RemoveSelection();
+		}
 	}
 
 }
 
 void ARTSTest_Camera::OnRightMouseClick()
+{
+	RemoveSelection();
+}
+
+void ARTSTest_Camera::RemoveSelection()
 {
 	ARTSTestGameModeBase* GameMode = Cast<ARTSTestGameModeBase>(GetWorld()->GetAuthGameMode());
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Clicked!"));

@@ -16,8 +16,11 @@ class RTSTEST_API URTSTest_UserWidget : public UUserWidget
 public:
 	UFUNCTION(BlueprintCallable)
 	void ChangeAssignedActor(AActor* AssignedActor);
+	UFUNCTION(BlueprintCallable,BlueprintNativeEvent, Category="Display")
+	void OnShow();
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	AActor* AssignedUnit;
+
 };

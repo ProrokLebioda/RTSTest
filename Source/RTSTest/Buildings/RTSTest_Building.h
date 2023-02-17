@@ -20,12 +20,17 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(BlueprintReadOnly)
+	class ARTSTest_Unit* AssignedUnit;
+
+
 private:
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* MeshComponent;
 
-	UPROPERTY(EditAnywhere)
-	class ARTSTest_Unit* AssignedUnit;
-public:	
+public:
+	UFUNCTION()
+	void AssignUnit(ARTSTest_Unit* Unit);
+
 	void Select_Implementation();
 };

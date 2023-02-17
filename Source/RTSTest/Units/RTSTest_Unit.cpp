@@ -43,3 +43,9 @@ void ARTSTest_Unit::Select_Implementation()
 	}
 }
 
+void ARTSTest_Unit::Assign_Implementation()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Unit Assigned!"));
+}
+
+

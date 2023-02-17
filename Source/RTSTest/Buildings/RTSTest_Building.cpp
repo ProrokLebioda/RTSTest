@@ -20,6 +20,14 @@ void ARTSTest_Building::BeginPlay()
 	
 }
 
+void ARTSTest_Building::AssignUnit(ARTSTest_Unit* Unit)
+{
+	if (AssignedUnit != Unit)
+	{
+		AssignedUnit = Unit;
+	}
+}
+
 void ARTSTest_Building::Select_Implementation()
 {
 	ARTSTestGameModeBase* GameMode = Cast<ARTSTestGameModeBase>(GetWorld()->GetAuthGameMode());

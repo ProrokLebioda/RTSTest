@@ -7,3 +7,7 @@ void URTSTest_UserWidget::ChangeAssignedActor(AActor* AssignedActor)
 {
 	AssignedUnit = AssignedActor;
 }
+
+void URTSTest_UserWidget::OnShow_Implementation()
+{
+}

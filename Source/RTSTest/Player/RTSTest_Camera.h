@@ -27,6 +27,7 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category = "Selection")
 	AActor* SelectedActor;
 
+	void RemoveSelection();
 public:	
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	void OnLeftMouseClick();

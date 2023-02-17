@@ -30,6 +30,7 @@ void ARTSTestGameModeBase::UpdateAssignedActor(AActor* AssignedActor)
 		{
 			if (!BuildingWidget->IsInViewport())
 				BuildingWidget->AddToViewport();
+			BuildingWidget->OnShow();
 		}
 		else 
 		{
@@ -53,8 +54,11 @@ void ARTSTestGameModeBase::UpdateAssignedActor(AActor* AssignedActor)
 
 void ARTSTestGameModeBase::SetSelectedActor(AActor* SelectedActor)
 {
-	Selected = SelectedActor;
-	AssignActor(SelectedActor);
+	if (SelectedActor != Selected)
+	{
+		Selected = SelectedActor;
+		AssignActor(SelectedActor);
+	}
 }
 
 void ARTSTestGameModeBase::AssignActor(AActor* AssignedActor)
