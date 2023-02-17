@@ -46,6 +46,12 @@ void ARTSTest_Unit::Select_Implementation()
 void ARTSTest_Unit::Assign_Implementation()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Unit Assigned!"));
+	ARTSTestGameModeBase* GameMode = Cast<ARTSTestGameModeBase>(GetWorld()->GetAuthGameMode());
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Unit Clicked!"));
+	if (GameMode)
+	{
+		GameMode->AssignUnitToBuilding(this);
+	}
 }
 
 

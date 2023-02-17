@@ -31,4 +31,5 @@ protected:
 	void AssignActor(AActor* AssignedActor);
 public:
 	void SetSelectedActor(AActor* SelectedActor);
+	void AssignUnitToBuilding(AActor* Unit);
 };

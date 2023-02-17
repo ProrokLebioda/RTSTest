@@ -61,6 +61,17 @@ void ARTSTestGameModeBase::SetSelectedActor(AActor* SelectedActor)
 	}
 }
 
+void ARTSTestGameModeBase::AssignUnitToBuilding(AActor* Unit)
+{
+	if (Selected)
+	{
+		if (ARTSTest_Building* building = Cast<ARTSTest_Building>(Selected))
+		{
+			building->AssignUnit(Unit);
+		}		
+	}
+}
+
 void ARTSTestGameModeBase::AssignActor(AActor* AssignedActor)
 {
 	UpdateAssignedActor(AssignedActor);

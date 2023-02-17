@@ -3,6 +3,7 @@
 
 #include "RTSTest_Building.h"
 #include <RTSTest/RTSTestGameModeBase.h>
+#include "RTSTest/Units/RTSTest_Unit.h"
 
 // Sets default values
 ARTSTest_Building::ARTSTest_Building()
@@ -20,11 +21,12 @@ void ARTSTest_Building::BeginPlay()
 	
 }
 
-void ARTSTest_Building::AssignUnit(ARTSTest_Unit* Unit)
+void ARTSTest_Building::AssignUnit(AActor* Unit)
 {
-	if (AssignedUnit != Unit)
+	ARTSTest_Unit* unit = Cast<ARTSTest_Unit>(Unit);
+	if (AssignedUnit != unit)
 	{
-		AssignedUnit = Unit;
+		AssignedUnit = unit;
 	}
 }
 
