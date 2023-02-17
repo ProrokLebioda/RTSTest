@@ -26,7 +26,9 @@ protected:
 
 	virtual void BeginPlay() override;
 
-
-public:
+	UPROPERTY(BlueprintReadOnly)
+	AActor* Selected;
 	void AssignActor(AActor* AssignedActor);
+public:
+	void SetSelectedActor(AActor* SelectedActor);
 };

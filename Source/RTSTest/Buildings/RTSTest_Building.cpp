@@ -26,7 +26,7 @@ void ARTSTest_Building::Select_Implementation()
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Building Clicked!"));
 	if (GameMode)
 	{
-		GameMode->AssignActor(this);
+		GameMode->SetSelectedActor(this);
 	}
 }
 

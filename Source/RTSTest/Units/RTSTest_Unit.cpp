@@ -2,6 +2,7 @@
 
 
 #include "RTSTest_Unit.h"
+#include <RTSTest/RTSTestGameModeBase.h>
 
 // Sets default values
 ARTSTest_Unit::ARTSTest_Unit()
@@ -33,5 +34,12 @@ void ARTSTest_Unit::UnitClicked()
 void ARTSTest_Unit::Select_Implementation()
 {
 	UnitClicked();
+
+	ARTSTestGameModeBase* GameMode = Cast<ARTSTestGameModeBase>(GetWorld()->GetAuthGameMode());
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Unit Clicked!"));
+	if (GameMode)
+	{
+		GameMode->SetSelectedActor(this);
+	}
 }
 

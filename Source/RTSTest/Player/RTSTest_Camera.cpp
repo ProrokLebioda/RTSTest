@@ -80,6 +80,6 @@ void ARTSTest_Camera::OnRightMouseClick()
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Clicked!"));
 	if (GameMode)
 	{
-		GameMode->AssignActor(nullptr);
+		GameMode->SetSelectedActor(nullptr);
 	}
 }
